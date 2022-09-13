@@ -16,7 +16,7 @@ node('maven') {
  }
   
 stage('Image Build') {
- sh "oc start-build sample-v1 -n sample --from-dir=target/undertow-servlet.jar --follow"
+ sh "oc start-build sample-v1 -n sample --from-file=target/undertow-servlet.jar --follow"
  }
   
 }
