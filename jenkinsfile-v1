@@ -1,0 +1,18 @@
+// Jenkinsfile
+  
+node('maven') {
+ stage('Source Build') {
+  
+ sh "oc whoami"
+ sh "id"
+  
+ git url: "https://github.com/rockplace2022/hello-source.git"
+  
+ sh "mvn clean package"
+ }
+  
+stage('Image Build') {
+ sh "oc start-build sample-v1 -n sample --from-dir="." --follow"
+ }
+  
+}
