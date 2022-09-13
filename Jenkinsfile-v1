@@ -5,9 +5,8 @@ node('maven') {
   
  // sh "oc whoami"
  // sh "id"
- git branch: '*/main' 
-     //Refspec" '+refs/pull/*:refs/remotes/origin/pr/*'
-     url: "https://github.com/rockplace2022/hello-source.git"
+ git rev-parse: 'origin/main'
+       url: "https://github.com/rockplace2022/hello-source.git"
  
  sh "mvn clean package"
  }
