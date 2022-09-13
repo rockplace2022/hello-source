@@ -8,7 +8,7 @@ node('maven') {
   
  // sh "oc whoami"
  // sh "id"
- git barach: "${params.BRANCH}" ,
+ git branch: "${params.BRANCH}" ,
      url: "https://github.com/rockplace2022/hello-source.git"
  
  sh "mvn clean package"
