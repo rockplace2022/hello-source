@@ -1,17 +1,13 @@
 // Jenkinsfile
   
 node('maven') {
-   parameters {
-    gitParameter branchFilter: 'origin/(.*)', defaultValue: 'main', name: 'BRANCH', type: 'PT_BRANCH'
-   }
- stage('Source Build') {
   
- // sh "oc whoami"
- // sh "id"
- //git branch: "${params.BRANCH}" ,
+ stage('git clone') {
+   
  git branch: "main" ,
      url: "https://github.com/rockplace2022/hello-source.git"
- 
+   }  
+ stage('Source Build') {
  sh "mvn clean package"
  }
   
